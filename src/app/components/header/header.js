@@ -7,7 +7,7 @@ export default async function Header() {
     return (
         <div className={styles.container}>
             <h2>Wrabler</h2>
-            {session
+            {session && session.user
                 ? <div className={styles.container}>
                     <p><b>{session.user.name}</b></p>
                     <form action={exitSession}>
