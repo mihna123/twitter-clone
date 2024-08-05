@@ -4,7 +4,6 @@ import { authenticate } from '@/app/lib/actions';
 import styles from "./page.module.css"
 
 export default function Login() {
-
     return (
         <div className={styles.container}>
             <form action={authenticate}>
@@ -15,7 +14,7 @@ export default function Login() {
                 <input type="password" name="password" />
                 <button className="primary-btn">Log In</button>
             </form>
-            <p>Don't have an account? <a href="/auth/register">Register here</a></p>
+            <p>Don&apos;t have an account? <a href="/auth/register">Register here</a></p>
         </div>
     )
 }
