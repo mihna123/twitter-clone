@@ -1,5 +1,7 @@
 import NextAuth from "next-auth";
 import Credentials from "next-auth/providers/credentials";
+import { sql } from "@vercel/postgres";
+import bcrypt from "bcrypt";
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
     providers: [
@@ -9,16 +11,21 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
                 password: {},
             },
             authorize: async (creds) => {
-                // TODO: Need to do this properly and hash password
-                if (creds.username !== "mihna123")
-                    throw new Error("User not found.");
-                if (creds.password !== "12345678")
-                    throw new Error("Wrong password")
-                const user = {
-                    name: creds.username,
-                    real: true
+                const { username, password } = creds;
+                const { rows } = await sql`SELECT * FROM users 
+                                            WHERE username = ${username}`
+                if (!rows) {
+                    return null;
                 }
-                return user;
+                const user = rows[0];
+
+                const result = await bcrypt.compare(password, user.passhash);
+
+                if(!result) {
+                    return null;
+                }
+
+                return { name: user.username };
             },
         }),
     ],
