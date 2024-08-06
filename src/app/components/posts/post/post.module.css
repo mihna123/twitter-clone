@@ -1,0 +1,24 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 600px;
+    padding: 10px 0;
+    border-width: 1px;
+    border-style: solid;
+    border-color: var(--primary-glow);
+    border-radius: 10px;
+}
+
+.content {
+    margin: 10px;
+}
+
+.header {
+    margin: 0 5px;
+}
+
+.footer {
+    display: flex;
+    align-items: center;
+    padding: 5px 5px 0 5px;
+}
