@@ -15,10 +15,18 @@
 
 .header {
     margin: 0 5px;
+    font-size: 0.9rem;
 }
 
 .footer {
     display: flex;
     align-items: center;
     padding: 5px 5px 0 5px;
+}
+
+.date {
+    margin-top: 10px;
+    margin-left: 10px;
+    opacity: 60%;
+    font-size: 0.9rem;
 }

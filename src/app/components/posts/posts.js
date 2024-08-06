@@ -9,14 +9,16 @@ export default function Posts() {
             likes: [],
             reposts: [],
             text: "This is my first ever post!",
-            imgUrl: "https://content.wepik.com/media/ai/top-image-3.png"
+            imgUrl: "https://content.wepik.com/media/ai/top-image-3.png",
+            date: new Date()
         },
         {
             userId: 14,
             replies: [],
             likes: [],
             reposts: [],
-            text: "This is the moment you all have been waiting for!!!"
+            text: "This is the moment you all have been waiting for!!!",
+            date: new Date()
         }
     ];
 

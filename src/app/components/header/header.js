@@ -6,7 +6,7 @@ export default async function Header() {
     const session = await auth();
     return (
         <div className={styles.container}>
-            <h2>Wrabler</h2>
+            <h2>Warbler</h2>
             {session && session.user
                 ? <div className={styles.container}>
                     <p><b>{session.user.name}</b></p>
