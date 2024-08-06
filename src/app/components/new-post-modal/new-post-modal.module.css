@@ -1,9 +1,44 @@
 .backdrop {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     min-width: 100vw;
     min-height: 100vh;
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.container {
+    position: fixed;
+    top: 85px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    display: flex;
+    flex-direction: column;
     background-color: black;
-    opacity: 80%;
+    border-style: solid;
+    border-color: var(--primary-glow);
+    border-width: 1px;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.container form {
+    width: 100%;
+}
+
+.container textarea {
+    margin-top: 20px;
+    width: 100%;
+    height: 150px;
+    padding: 5px;
+    resize: none;
+    font: inherit;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
