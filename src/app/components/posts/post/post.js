@@ -8,7 +8,7 @@ import styles from "./post.module.css";
 * */
 function getPrettyDate(date) {
     const preety = `${date.getHours()}:${date.getMinutes()} 
-        - ${date.getDate()}. ${date.getMonth()}. ${date.getFullYear()}.`;
+        - ${date.getDate()}.${date.getMonth()}.${date.getFullYear()}.`;
     return preety;
 }
 
@@ -22,19 +22,20 @@ function getPrettyDate(date) {
 * @param {String} params.postData.imgUrl
 * @param {Date} params.postData.date
 * @param {Number} params.postData.id
+* @param {String} params.postData.username
 * */
 export default function Post({ postData }) {
     return (
         <div className={styles.container}>
-            <p className={styles.header}><b>someone</b> posted:</p>
+            <p className={styles.header}><b>{postData.username ?? "someone"}</b> posted:</p>
             <p className={styles.content}>{postData.text}</p>
             {postData.imgUrl &&
                 <img src={postData.imgUrl} alt="post image" />}
-            <p className={styles.date}>{getPrettyDate(postData.date)}</p>
+            <p className={styles.date}>{getPrettyDate(postData.datetime)}</p>
             <div className={styles.footer}>
-                <button className="primary-btn">Like {postData.likes.length}</button>
-                <button className="primary-btn">Reply {postData.replies.length}</button>
-                <button className="primary-btn">Repost {postData.reposts.length}</button>
+                <button className="primary-btn">Like {postData.likes?.length ?? ""}</button>
+                <button className="primary-btn">Reply {postData.replies?.length ?? ""}</button>
+                <button className="primary-btn">Repost {postData.reposts?.length ?? ""}</button>
             </div>
         </div>
     )

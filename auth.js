@@ -21,11 +21,11 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
 
                 const result = await bcrypt.compare(password, user.passhash);
 
-                if(!result) {
+                if (!result) {
                     return null;
                 }
 
-                return { name: user.username };
+                return { name: user.username, id: user.id };
             },
         }),
     ],
